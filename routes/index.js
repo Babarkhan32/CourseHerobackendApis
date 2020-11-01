@@ -14,6 +14,6 @@ router.get('/',function(req,res){
 router.post('/courses/insert',auth,course.insertCourses)
 router.get('/courses/:id',course.getCourses)
 router.get('/all/courses',course.getAllCourses)
-
+router.post('/search',course.searchCourse)
 
 module.exports = router;
