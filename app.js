@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 });
 
 
-const PORT=process.env.PORT || 5000
+// const PORT=process.env.PORT || 5000
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -52,7 +52,5 @@ if(process.env.NODE_ENV==='production'){
   
 }
 
-app.listen(PORT,function(){
-  console.log("listening at "+ PORT)
-})
+
 module.exports = app;
