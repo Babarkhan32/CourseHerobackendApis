@@ -8,7 +8,7 @@ const options = {
 connectDB=async()=>{
     try{
         await mongoose.connect(
-          "  mongodb+srv://BabarKhan:babar123@cluster0.xikk7.mongodb.net/CourseDb?retryWrites=true&w=majority",options
+         process.env.MONGODB_URI || "mongodb+srv://BabarKhan:babar123@cluster0.xikk7.mongodb.net/CourseDb?retryWrites=true&w=majority",options
         )
 
         console.log("Mongo Connected");

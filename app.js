@@ -27,14 +27,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/', indexRouter);
+app.use('/api/users', usersRouter);
 connectDB();
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
+const PORT=process.env.PORT || 5000
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -46,7 +48,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(5000,function(){
-  console.log("listening at 5000")
+if(process.env.NODE_ENV==='production'){
+  
+}
+
+app.listen(PORT,function(){
+  console.log("listening at "+ PORT)
 })
 module.exports = app;

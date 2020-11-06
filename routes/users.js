@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const auth=require("../middleware/auth");
-const {validate,User}=require('../schema/User')
+const {validate,User}=require('../models/User')
 const jwt_decode=require("jwt-decode");
 
 

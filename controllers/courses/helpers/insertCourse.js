@@ -1,4 +1,4 @@
-const course=require('../../../schema/courses');
+const course=require('../../../models/courses');
 const jwt_decode=require("jwt-decode");
 
 

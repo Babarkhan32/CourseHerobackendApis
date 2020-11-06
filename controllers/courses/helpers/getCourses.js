@@ -1,4 +1,4 @@
-const course=require('../../../schema/courses');
+const course=require('../../../models/courses');
 
 
 exports.getCourses=async(req,res)=>{
