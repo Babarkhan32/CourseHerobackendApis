@@ -1,13 +1,15 @@
 const course=require('../../../models/courses');
 const jwt_decode=require("jwt-decode");
-
-
-exports.insertCourses=(req,res)=>{
+const moment=require('moment');
+exports.insertCourses=async(req,res)=>{
    try{
     const value =jwt_decode(req.headers.authorization);
-    console.log(value);
+    let date=moment().unix().toString();
+    req.body.creation_date=date;
+    
     req.body.owner_id=value._id
-  course.collection.insertOne(req.body)
+    
+  await course.collection.insertOne(req.body)
 res.json({
      success:true,
      data:"Inserted"

@@ -48,9 +48,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-if(process.env.NODE_ENV==='production'){
-  
-}
+app.listen(5000,()=>{
+console.log("listening")
+})
 
 
 module.exports = app;

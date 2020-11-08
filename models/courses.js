@@ -25,6 +25,7 @@ var courses=new Schema({
     financialDetails: String,
     starting_date: String,
     ending_date: String,
+    creation_date: String,
     owner_id:{type:Schema.Types.ObjectId,ref:'User'}
 })
 

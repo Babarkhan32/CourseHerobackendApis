@@ -4,7 +4,7 @@ const course=require('../../../models/courses');
 exports.getAllCourses=async(req,res)=>{
     try{
     
-    let newobj=await course.find({});
+    let newobj=await course.find({}).sort({creation_date:-1});
 
       res.json({
           success:true,
