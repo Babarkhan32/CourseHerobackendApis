@@ -15,5 +15,6 @@ router.post('/courses/insert',auth,course.insertCourses)
 router.get('/courses/:id',course.getCourses)
 router.get('/all/courses',course.getAllCourses)
 router.post('/search',course.searchCourse)
+router.post('/nav/search',course.navbarSearch)
 
 module.exports = router;
