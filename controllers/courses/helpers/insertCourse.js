@@ -6,17 +6,15 @@ exports.insertCourses=async(req,res)=>{
     const value =jwt_decode(req.headers.authorization);
     let date=moment().unix().toString();
     req.body.creation_date=date;
-    
     req.body.owner_id=value._id
-    
-  await course.collection.insertOne(req.body)
-res.json({
-     success:true,
-     data:"Inserted"
-  })
-}catch(error){
 
-   console.log(error)
-  
+    console.log("Punjabi frnd",req.body)
+//     await course.collection.insertOne(req.body)
+// res.json({
+//      success:true,
+//      data:"Inserted"
+//   })
+}catch(error){
+ console.log(error)
   }
 }

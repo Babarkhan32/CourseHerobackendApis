@@ -8,6 +8,10 @@ var courses=new Schema({
     courseOverView: String,
     courseContent: String,
     teacher: String,
+    ProgramType:String,
+    additionalSubject1:String,
+    additionalSubject2:String,
+    additionalSubject3:String,
     mode: String,
     courseInfo: String,
     subjectCategory: String,
@@ -26,6 +30,10 @@ var courses=new Schema({
     starting_date: String,
     ending_date: String,
     creation_date: String,
+    part: String,
+    programName:String,
+    programSpecs: String,
+
     owner_id:{type:Schema.Types.ObjectId,ref:'User'}
 })
 

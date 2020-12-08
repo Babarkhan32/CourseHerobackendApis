@@ -1,7 +1,21 @@
 var express = require('express');
 var router = express.Router();
+const multer=require('multer');
 
+
+const storage=multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'uploads')
+    },
+    filename:function(req,file,cb){
+        cb(null,file.originalname)
+    }
+});
+const uploads=multer({storage})
 var course=require('../controllers/courses/courses')
+var teacher=require('../controllers/teacher/teacher')
+var institute=require('../controllers/institute/institute')
+var student =require ('../controllers/students/students')
 var auth=require("../middleware/auth")
 /* GET home page. */
 router.get('/',function(req,res){
@@ -10,11 +24,23 @@ router.get('/',function(req,res){
     })
 });
 
-/*getCourses */
+/*Courses Api*/
 router.post('/courses/insert',auth,course.insertCourses)
 router.get('/courses/:id',course.getCourses)
 router.get('/all/courses',course.getAllCourses)
 router.post('/search',course.searchCourse)
 router.post('/nav/search',course.navbarSearch)
+
+
+/*Teacher Apis*/
+router.post('/teacher/insert',uploads.single('imageSet'),teacher.insertTeacher)
+
+
+/*Institute Apis*/
+router.post('/institute/insert',uploads.array('imageSet',10),institute.insertInstitute)
+
+/*Student Apis*/
+router.post('/student/insert',uploads.single('imageSet'),student.insertStudent)
+
 
 module.exports = router;
