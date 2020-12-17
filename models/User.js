@@ -3,7 +3,6 @@ const Joi = require('joi');
 const mongoose = require('mongoose');
 const config = require('config');
 
-
 const UserSchema = new mongoose.Schema({
     name: {
       type: String,

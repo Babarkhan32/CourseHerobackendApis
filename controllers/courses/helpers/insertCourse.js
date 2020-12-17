@@ -7,13 +7,13 @@ exports.insertCourses=async(req,res)=>{
     let date=moment().unix().toString();
     req.body.creation_date=date;
     req.body.owner_id=value._id
-
-    console.log("Punjabi frnd",req.body)
-//     await course.collection.insertOne(req.body)
-// res.json({
-//      success:true,
-//      data:"Inserted"
-//   })
+    req.body.isDegree=false;
+    
+    await course.collection.insertOne(req.body)
+res.json({
+     success:true,
+     data:"Inserted"
+  })
 }catch(error){
  console.log(error)
   }

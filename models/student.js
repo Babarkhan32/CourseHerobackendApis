@@ -3,27 +3,26 @@ var Schema = mongoose.Schema;
 
 
 var student=new Schema({
+    Address:String,
+    DateOfBirth:String,
+    FullName:String,
+    affordableCost: String,
+    degrees:Array,
+    desiredMode: String,
+    desireddisciplineName: String,
+    emailAddress: String,
     gender: String,
-    name: String,
-    dateofbirth: String,
-    email: String,
-    phone: String,
-    whatsapp: String,
-    imageSet: Array,
-    address: String,
-    spokenlanguages: Array,
+    imageSet:Array,
     introduction: String,
-    degrees: Array,
-    degreeType:String,
-    degreeFrom: String,
-    degreePassingYear:String,
-    interestedDegree: String,
-    availability:String,
-    cost:String,
-    country:String,
-    city:String,
-    prefferedLanguage:String
-
+    passingYear:String,
+    phoneNumber: String,
+    prefferedCity: String,
+    prefferedCountry: String,
+    prefferedLanguages: String,
+    programType:String,
+    spokenLanguages: Array,
+    studyProposal: String,
+    whatsapp: String
 
 
 
