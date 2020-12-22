@@ -5,6 +5,8 @@ const multer=require('multer');
 
 const storage=multer.diskStorage({
     destination:function(req,file,cb){
+
+        console.log(file,"Req.files");
         cb(null,'uploads')
     },
     filename:function(req,file,cb){
@@ -35,7 +37,7 @@ router.post('/nav/search',course.navbarSearch)
 
 
 /*Teacher Apis*/
-router.post('/teacher/insert',uploads.single('imageSet'),teacher.insertTeacher);
+router.post('/teacher/insert',uploads.array('imageSet',10),teacher.insertTeacher);
 
 
 /*Institute Apis*/

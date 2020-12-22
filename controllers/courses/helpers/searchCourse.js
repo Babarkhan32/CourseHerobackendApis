@@ -22,19 +22,19 @@ exports.searchCourse=async (req,res)=>{
                     };
                 }
                 if(req.body.certificate){
-                    let array=await course.find({type:req.body.certificate});
+                    let array=await course.find({courseSpecification:req.body.certificate});
                     if(array.length>0){
                         finalArray.push(array)
                         };
                  }
                  if(req.body.nonCertificate){
-                    let array=await course.find({type:req.body.nonCertificate});
+                    let array=await course.find({courseSpecification:req.body.nonCertificate});
                     if(array.length>0){
                         finalArray.push(array)
                         };
                 }
                 if(req.body.certificateCredit){
-                    let array=await course.find({type:req.body.certificateCredit});
+                    let array=await course.find({courseSpecification:req.body.certificateCredit});
                     if(array.length>0){
                         finalArray.push(array)
                         };
@@ -52,7 +52,7 @@ exports.searchCourse=async (req,res)=>{
                         };
                 }
                 if(req.body.master){
-                    let array=await course.find({mode:req.body.master});
+                    let array=await course.find({courseSpecification:"Master's"});
                     if(array.length>0){
                         finalArray.push(array)
                         };
@@ -64,7 +64,7 @@ exports.searchCourse=async (req,res)=>{
                         };
                 }
                 if(req.body.postDoc){
-                    let array=await course.find({mode:req.body.postDoc});
+                    let array=await course.find({courseSpecification:'Post Doc'});
                     if(array.length>0){
                         finalArray.push(array)
                         };
