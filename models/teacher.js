@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var teacher=new Schema({
+var teacher = new Schema({
     DegreeDetails: Array,
     Expertise: Array,
-    FullName:String,
+    FullName: String,
     // Previousinstitute: "ims"
     address: String,
     availability: String,
@@ -17,17 +17,18 @@ var teacher=new Schema({
     desiredCourse: String,
     email: String,
     empHistory: Array,
-    experience:String,
+    experience: String,
     gender: String,
-    imageSet:Array,
+    // imageSet:Array,
+    imageSet: String,
     introduction: Array,
-    periodFrom:String,
+    periodFrom: String,
     phone: String,
     spokenlanguages: String,
     whatsapp: String
-    
 
 
-    })
+
+})
 
 module.exports = mongoose.model('teacher', teacher);
