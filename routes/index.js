@@ -29,7 +29,7 @@ router.get('/', function (req, res) {
 
 /*Courses Api*/
 
-router.post('/courses/insert', auth, course.insertCourses)
+router.post('/courses/insert', auth, uploads.single('facultyResume'), course.insertCourses)
 router.get('/courses/:id', course.getCourses)
 router.get('/all/courses', course.getAllCourses)
 router.post('/search', course.searchCourse)
