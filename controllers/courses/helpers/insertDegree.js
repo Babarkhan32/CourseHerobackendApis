@@ -1,8 +1,8 @@
 const courses = require('../../../models/courses');
 const moment = require('moment');
+const jwt_decode = require("jwt-decode");
 
 exports.insertDegree = async (req, res) => {
-  console.log('institute', req.files)
   let pathsArr = []
   pathsArr = req.files.map((file) => file.path)
   try {
@@ -39,7 +39,9 @@ exports.insertDegree = async (req, res) => {
         facultyInformation.push(obj);
     }
 req.body.facultyInformation=facultyInformation;
-   
+const value = jwt_decode(req.headers.authorization);
+
+req.body.owner_id=value._id
     await courses.collection.insertOne(req.body)
     res.json({
       success: true,
