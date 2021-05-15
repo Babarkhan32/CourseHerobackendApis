@@ -39,10 +39,14 @@ router.post("/search", course.searchCourse);
 router.post("/nav/search", course.navbarSearch);
 router.post(
   "/images",
-  uploads.array("facultyInformation"),
-  async function (req, res) {
-    console.log(req.files, "See it here");
-
+  uploads.array("facultyInformation", 10),
+  async function (req, res, err) {
+    if (err) {
+      return res.json({
+        success: false,
+        error: err,
+      });
+    }
     res.json({
       success: true,
       data: req.files,
