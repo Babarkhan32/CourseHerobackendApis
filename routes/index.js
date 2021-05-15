@@ -41,6 +41,7 @@ router.post(
   "/images",
   uploads.array("facultyInformation", 10),
   async function (req, res, err) {
+    console.log(err);
     if (err) {
       return res.json({
         success: false,
