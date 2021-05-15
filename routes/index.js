@@ -44,7 +44,7 @@ router.post(
     if (err) {
       return res.json({
         success: false,
-        data: err,
+        data: err || "error",
       });
     }
     res.json({
