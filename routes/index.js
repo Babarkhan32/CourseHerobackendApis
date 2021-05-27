@@ -17,7 +17,7 @@ var teacher = require("../controllers/teacher/teacher");
 var institute = require("../controllers/institute/institute");
 var student = require("../controllers/students/students");
 var auth = require("../middleware/auth");
-var degree = require("../controllers/degree/degree");
+const basedata = require("../models/basedata");
 /* GET home page. */
 router.get("/", function (req, res) {
   res.json({
@@ -70,6 +70,14 @@ router.post(
   uploads.single("imageSet"),
   student.insertStudent
 );
+
+//TextFieldsApi
+router.get("/textFieldData", async (req, res) => {
+  let textFields = await basedata.find({});
+  res.json({
+    data: textFields,
+  });
+});
 
 //degree Apis
 router.post(
