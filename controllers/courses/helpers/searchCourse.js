@@ -94,6 +94,7 @@ exports.searchCourse = async (req, res) => {
         finalArray.push(array);
       }
     }
+    //comment
 
     if (req.body.country) {
       let array = await course.find({ country: req.body.country });
