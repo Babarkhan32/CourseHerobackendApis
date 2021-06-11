@@ -136,7 +136,7 @@ exports.searchCourse = async (req, res) => {
         finalArray.push(array)
       }
     }
-
+//Comment somehting
     for (let i = 0; i < finalArray.length; i++) {
       for (let j = 0; j < finalArray[i].length; j++) {
         newArray.push(finalArray[i][j]);
