@@ -105,7 +105,8 @@ exports.searchCourse = async (req, res) => {
     }
 
     if (req.body.cost) {
-      let array = await course.find({ cost: { $lt: req.body.cost } });
+      console.log("It entered",req.body);
+      let array = await course.find({ totalCost: { $lt: req.body.cost } });
 
       if (array.length > 0) {
         finalArray.push(array);
@@ -119,12 +120,20 @@ exports.searchCourse = async (req, res) => {
         finalArray.push(array);
       }
     }
+
+    if(req.body)
     if (req.body.language) {
       let array = await course.find({
         courseLanguage: req.body.language,
       });
       if (array.length > 0) {
         finalArray.push(array);
+      }
+    }
+    if(req.body.city){
+    let array=await course.find( { "courseCity" : { $regex : new RegExp(req.body.city, "i") } } );
+      if(array.length>0){
+        finalArray.push(array)
       }
     }
 
